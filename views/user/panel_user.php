@@ -31,7 +31,6 @@
         <a class="navbar-brand" href="#">
             <img src="../assets/pata2.png" width="30" alt="">
         </a>
-        <a class="navbar-brand" href="#">Pet Feliz</a>
 
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
