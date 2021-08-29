@@ -16,14 +16,16 @@
 <body>
 
     <div class="container card p-4 mt-5" style="width: 35rem;">
-        <form action="./views/user/panel_user.php">
+        <p>email: m@gmail.com</p>
+        <p>senha: m123</p>
+        <form action="./controller/login.php" method="post">
             <div class="form-group">
                 <label for="exampleInputEmail1">Email</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Seu email">
+                <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Seu email">
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">Senha</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha">
+                <input name="senha" type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha">
             </div>
             <button type="submit" class="btn btn-outline-primary btn-block">Entrar</button>
             <br>

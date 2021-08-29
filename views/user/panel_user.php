@@ -1,3 +1,16 @@
+<?php
+    $animal =[
+        'dog' => [
+            'imagem' => 'https://www.dicaspetz.com.br/wp-content/uploads/2019/06/cachorro-filhote.jpg',
+            'nome' => 'Pega Rexxx'
+        ],
+        'gato' => [
+            'imagem' => 'https://super.abril.com.br/wp-content/uploads/2020/09/04-09_gato_SITE.jpg',
+            'nome' => 'Helbert Richard'
+        ]
+    ];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,22 +55,25 @@
         <div class="container">
             <H1>Animais cadastrados:</H1>
             <div style="display:grid;grid-template-columns: 1fr 1fr 1fr;">
-                <div class="card p-2 mt-3 mb-3" style="width: 18rem;">
-                    <img class="card-img-top" src="https://www.dicaspetz.com.br/wp-content/uploads/2019/06/cachorro-filhote.jpg" alt="Imagem de capa do card">
-                    <div class="card-body">
-                        <a href="./gerenciar.php">
-                            <p class="card-text">Totózinho</p>
-                        </a>
+                <?php
+                if($animal){
+                    foreach($animal as $a){
+                ?>
+                    <div class="card p-2 mt-3 mb-3" style="width: 18rem;">
+                        <img class="card-img-top" src="<?=$a['imagem']?>" alt="Imagem de capa do card">
+                        <div class="card-body">
+                            <a href="./gerenciar.php">
+                                <p class="card-text"><?=$a['nome']?></p>
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <div class="card p-2 mt-3 mb-3" style="width: 18rem;">
-                    <img class="card-img-top" src="https://super.abril.com.br/wp-content/uploads/2020/09/04-09_gato_SITE.jpg" alt="Imagem de capa do card">
-                    <div class="card-body">
-                        <a href="./gerenciar.php">
-                            <p class="card-text">Helbert Richard</p>
-                        </a>
-                    </div>
-                </div>
+
+                <?php
+                    }
+                } else {
+                    echo "<h4>Sem animais cadastrados!</h4>";
+                }
+                ?>
             </div>
         </div>
 </body>
