@@ -13,7 +13,7 @@
 <body>
 
     <div class="container card p-4 mt-5" style="width: 35rem;">
-        <form action="" method="post">
+        <form action="../controller/cadastrar.php" method="post">
             <div class="form-group">
                 <label for="exampleInput">Nome</label>
                 <input type="text" class="form-control" id="exampleInput" placeholder="Seu nome">
