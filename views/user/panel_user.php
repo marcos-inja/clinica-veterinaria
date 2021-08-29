@@ -1,14 +1,14 @@
 <?php
-    $animal =[
-        'dog' => [
-            'imagem' => 'https://www.dicaspetz.com.br/wp-content/uploads/2019/06/cachorro-filhote.jpg',
-            'nome' => 'Pega Rexxx'
-        ],
-        'gato' => [
-            'imagem' => 'https://super.abril.com.br/wp-content/uploads/2020/09/04-09_gato_SITE.jpg',
-            'nome' => 'Helbert Richard'
-        ]
-    ];
+$animal = [
+    'dog' => [
+        'imagem' => 'https://www.dicaspetz.com.br/wp-content/uploads/2019/06/cachorro-filhote.jpg',
+        'nome' => 'Pega Rexxx'
+    ],
+    'gato' => [
+        'imagem' => 'https://super.abril.com.br/wp-content/uploads/2020/09/04-09_gato_SITE.jpg',
+        'nome' => 'Helbert Richard'
+    ]
+];
 ?>
 
 <!DOCTYPE html>
@@ -52,20 +52,20 @@
 
     <div>
         <div class="container">
-            <H1>Animais cadastrados:</H1>
+            <H2>Animais cadastrados:</H2>
             <div style="display:grid;grid-template-columns: 1fr 1fr 1fr;">
                 <?php
-                if($animal){
-                    foreach($animal as $a){
+                if ($animal) {
+                    foreach ($animal as $a) {
                 ?>
-                    <div class="card p-2 mt-3 mb-3" style="width: 18rem;">
-                        <img class="card-img-top" src="<?=$a['imagem']?>" alt="Imagem de capa do card">
-                        <div class="card-body">
-                            <a href="./gerenciar.php">
-                                <p class="card-text"><?=$a['nome']?></p>
-                            </a>
+                        <div class="card p-2 mt-3 mb-3" style="width: 18rem;">
+                            <img class="card-img-top" src="<?= $a['imagem'] ?>" alt="Imagem de capa do card">
+                            <div class="card-body">
+                                <a href="./gerenciar.php">
+                                    <p class="card-text"><?= $a['nome'] ?></p>
+                                </a>
+                            </div>
                         </div>
-                    </div>
 
                 <?php
                     }

@@ -28,7 +28,7 @@
             </div>
             <button type="submit" class="btn btn-outline-primary btn-block">Entrar</button>
             <br>
-            <a href="./views/user/log.php">Se cadastre!</a>
+            <a href="./views/log.php">Se cadastre!</a>
         </form>
     </div>
 </body>
