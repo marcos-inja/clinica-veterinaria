@@ -14,7 +14,7 @@
    
     <div class="container card p-4 mt-4" style="width: 35rem;">
     <h3>Novo animal</h3>
-        <form action="" method="post">
+        <form action="/controller/upload_img.php" method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="exampleInput">Nome</label>
                 <input type="text" class="form-control" id="exampleInput" placeholder="Nome do pet">
@@ -37,6 +37,10 @@
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Descrição do pet</label>
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="Descreva doeças, qualquer coisa..."></textarea>
+            </div>
+            <div class="form-group">
+                <label for="exampleInput">Imagem</label>
+                <input type="file" class="form-control" id="exampleInput" required name="arquivo">
             </div>
             <button type="submit" class="btn btn-outline-success btn-block">Cadastrar</button>
         </form>
