@@ -1,4 +1,5 @@
 <?php
+session_start();
 $animal = [
     'dog' => [
         'imagem' => 'https://www.dicaspetz.com.br/wp-content/uploads/2019/06/cachorro-filhote.jpg',
@@ -52,6 +53,30 @@ $animal = [
 
     <div>
         <div class="container">
+            <?php
+            if (isset($_SESSION['sucesso'])) {
+            ?>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    Sucesso ao criar novo pet.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            <?php
+            }
+            if (isset($_SESSION['erro'])) {
+            ?>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    Erro ao criar novo pet.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            <?php
+            }
+            unset($_SESSION['sucesso']);
+            unset($_SESSION['erro'])
+            ?>
             <H2>Animais cadastrados:</H2>
             <div style="display:grid;grid-template-columns: 1fr 1fr 1fr;">
                 <?php
