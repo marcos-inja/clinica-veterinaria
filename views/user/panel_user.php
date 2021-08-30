@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('../../controller/verifica.php');
+include('../../controller/verifica_login.php');
 require_once('../../controller/animais.php');
 
 $animal = [
@@ -87,11 +87,12 @@ $animal = [
                 <?php
                 if ($result->num_rows > 0) {
                     while ($linha = $result->fetch_assoc()) {
+                        $id = $linha['id'];
                 ?>
                         <div class="card p-2 mt-3 mb-3" style="width: 18rem;">
-                            <img class="card-img-top" src="<?= '../img_upload/'.$linha['img']; ?>" alt="Imagem de capa do card">
+                            <img class="card-img-top" style="height: 14rem; object-fit: cover;" src="<?= '../img_upload/'.$linha['img']; ?>" alt="Imagem de capa do card">
                             <div class="card-body">
-                                <a href="./gerenciar.php">
+                                <a href="./gerenciar.php?animal=<?= $linha['id']; ?>">
                                     <p class="card-text"><?= $linha['name']; ?></p>
                                 </a>
                             </div>
