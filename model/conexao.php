@@ -1,7 +1,19 @@
 <?php
-define('HOST', '127.0.0.1');
-define('USUARIO', 'root');
-define('SENHA', 'suasenha');
-define('DB', 'veterinaria');
 
-$conexao = mysqli_connect(HOST, USUARIO, SENHA, DB) or die ('Não foi possível conectar');
+    class Banco{
+        private $endereco = '127.0.0.1';
+        private $usuario = 'root';
+        private $senha = 'senha';
+        private $nomeBanco = 'veterinaria';
+        public $con;
+
+        function __construct(){
+            $this->con = mysqli_connect($this->endereco, $this->usuario, $this->senha, $this->nomeBanco);
+        }
+
+        public function executarSql($sql){
+            $resultado = mysqli_query($this->con, $sql);
+            return $resultado;
+        }
+    }
+?>

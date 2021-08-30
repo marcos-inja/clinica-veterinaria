@@ -1,13 +1,9 @@
 <?php
 session_start();
-include('../../controller/verifica_login.php');
-include("../../model/conexao1.php");
-$id = $_GET['animal'];
-$sql = "select * from animal where id=$id";
-$result = mysqli_query($conexao, $sql);
-$row = mysqli_num_rows($result);
-
+include_once('../../controller/verifica_login.php');
+include_once ('../../controller/user/exibir_animal.php');
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 

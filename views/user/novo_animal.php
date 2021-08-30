@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('../../controller/verifica_login.php');
+include_once('../../controller/verifica_login.php');
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +19,7 @@ include('../../controller/verifica_login.php');
    
     <div class="container card p-4 mt-4" style="width: 35rem;">
     <h3>Novo animal</h3>
-        <form action="../../controller/user/upload_img.php" method="post" enctype="multipart/form-data">
+        <form action="../../controller/user/cadastrar_animal.php" method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="exampleInput">Nome</label>
                 <input name="nome" type="text" class="form-control" id="exampleInput" placeholder="Nome do pet" required>

@@ -1,7 +1,8 @@
 <?php
 include("../../model/conexao1.php");
+include("../../model/user/animal.php");
 
-$sql = "select * from animal";
-$result = mysqli_query($conexao, $sql);
+$animal = new Animal();
+$result = $animal->exibirAnimal();
 $row = mysqli_num_rows($result);
 ?>
