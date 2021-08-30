@@ -17,7 +17,7 @@
     <div class="container card p-4 mt-5" style="width: 35rem;">
         <p>email: m@gmail.com</p>
         <p>senha: m123</p>
-        <form action="./controller/login.php" method="post">
+        <form action="./controller/user/login.php" method="post">
             <div class="form-group">
                 <label for="exampleInputEmail1">Email</label>
                 <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Seu email">

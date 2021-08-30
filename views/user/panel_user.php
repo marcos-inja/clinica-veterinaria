@@ -1,7 +1,7 @@
 <?php
 session_start();
 include('../../controller/verifica_login.php');
-require_once('../../controller/animais.php');
+require_once('../../controller/user/animais.php');
 
 $animal = [
     'dog' => [
