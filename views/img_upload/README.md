@@ -1,0 +1,1 @@
+# pasta onde fica arquivos temporarios 
