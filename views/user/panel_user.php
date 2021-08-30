@@ -1,5 +1,8 @@
 <?php
 session_start();
+include('../../controller/verifica.php');
+require_once('../../controller/animais.php');
+
 $animal = [
     'dog' => [
         'imagem' => 'https://www.dicaspetz.com.br/wp-content/uploads/2019/06/cachorro-filhote.jpg',
@@ -13,7 +16,7 @@ $animal = [
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -32,7 +35,6 @@ $animal = [
         <a class="navbar-brand" href="#">
             <img src="../assets/pata2.png" width="30" alt="">
         </a>
-
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item active">
@@ -41,7 +43,9 @@ $animal = [
                 <li class="nav-item">
                     <a class="nav-link" href="./consultas.php">Consultas</a>
                 </li>
-
+                <li class="nav-item">
+                    <a class="nav-link" href="../../controller/sair.php">Sair</a>
+                </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
@@ -79,15 +83,16 @@ $animal = [
             ?>
             <H2>Animais cadastrados:</H2>
             <div style="display:grid;grid-template-columns: 1fr 1fr 1fr;">
+
                 <?php
-                if ($animal) {
-                    foreach ($animal as $a) {
+                if ($result->num_rows > 0) {
+                    while ($linha = $result->fetch_assoc()) {
                 ?>
                         <div class="card p-2 mt-3 mb-3" style="width: 18rem;">
-                            <img class="card-img-top" src="<?= $a['imagem'] ?>" alt="Imagem de capa do card">
+                            <img class="card-img-top" src="<?= '../img_upload/'.$linha['img']; ?>" alt="Imagem de capa do card">
                             <div class="card-body">
                                 <a href="./gerenciar.php">
-                                    <p class="card-text"><?= $a['nome'] ?></p>
+                                    <p class="card-text"><?= $linha['name']; ?></p>
                                 </a>
                             </div>
                         </div>

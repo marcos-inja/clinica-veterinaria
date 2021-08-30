@@ -1,5 +1,10 @@
+<?php
+session_start();
+include('../../controller/verifica.php');
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -17,29 +22,29 @@
         <form action="../../controller/upload_img.php" method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="exampleInput">Nome</label>
-                <input type="text" class="form-control" id="exampleInput" placeholder="Nome do pet">
+                <input name="nome" type="text" class="form-control" id="exampleInput" placeholder="Nome do pet" required>
             </div>
             <div class="form-group">
                 <label for="exampleInput">Foto do pet</label>
-                <input type="file" class="form-control" id="exampleInput" required name="arquivo">
+                <input name="arquivo" type="file" class="form-control" id="exampleInput" required>
             </div>
             <div class="form-group">
                 <label for="exampleInput">idade</label>
-                <input type="text" class="form-control" id="exampleInput" placeholder="Idade do pet">
+                <input name="idade" type="text" class="form-control" id="exampleInput" placeholder="Idade do pet" required>
             </div>
 
             <div class="form-group">
                 <label for="exampleInput">Especie</label>
-                <input type="text" class="form-control" id="exampleInput" placeholder="Especie do pet">
+                <input name="especie" type="text" class="form-control" id="exampleInput" placeholder="Especie do pet" required>
             </div>
 
             <div class="form-group">
                 <label for="exampleInput">Raça</label>
-                <input type="text" class="form-control" id="exampleInput" placeholder="Raça do pet">
+                <input name="raca" type="text" class="form-control" id="exampleInput" placeholder="Raça do pet" required>
             </div>
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Descrição do pet</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="Descreva doeças, qualquer coisa..."></textarea>
+                <textarea name="descricao" class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="Descreva doeças, qualquer coisa..." required></textarea>
             </div>
             <button type="submit" class="btn btn-outline-success btn-block">Cadastrar</button>
         </form>

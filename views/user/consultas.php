@@ -1,5 +1,9 @@
+<?php
+session_start();
+include('../../controller/verifica.php');
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -26,6 +30,9 @@
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="./consultas.php">Consultas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../../controller/sair.php">Sair</a>
                 </li>
 
             </ul>

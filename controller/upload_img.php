@@ -1,8 +1,6 @@
 <?php
     session_start();
-    include('../model/conexao1.php'); // Tire o '1' deixe apenas coneção.
-
-    $msg = false;
+    include('../model/conexao1.php'); // Tire o '1' deixe apenas conexao.
 
     if(isset($_FILES['arquivo'])){
 
@@ -10,8 +8,14 @@
         $nameNovo = md5(time()).$extensao; // define o nome do arquivo e adiciona a entenção
         $diretorio = "../views/img_upload/"; // Define o diretorio onde sera salvo a imagem
         move_uploaded_file($_FILES['arquivo']['tmp_name'],$diretorio.$nameNovo);
-        // $mysqlImg = addslashes(fread(fopen($nameNovo, "r"), $tamanhoImg));
-        $sgl_code = "INSERT INTO animal (id, img, name,idade, especie, raca, descricao, data_cadastro) VALUES(null,'$nameNovo', 'dog', 2, 'cachorro', 'pastor', 'doente pra carai', NOW())";
+        
+        $nome = $_POST['nome'];
+        $especie = $_POST['especie'];
+        $raca = $_POST['raca'];
+        $idade = $_POST['idade'];
+        $descricao = $_POST['descricao'];
+        $sgl_code = "INSERT INTO animal (id, img, name, idade, especie, raca, descricao, data_cadastro) 
+        VALUES(null,'$nameNovo', '$nome', $idade, '$especie', '$raca', '$descricao', NOW())";
         
         if($conexao->query($sgl_code))
             $_SESSION['sucesso'] = true;
