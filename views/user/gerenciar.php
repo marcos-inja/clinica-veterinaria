@@ -64,7 +64,7 @@ include_once ('../../controller/user/exibir_animal.php');
                     <div>
                     <button class="btn btn-outline-warning my-2 my-sm-0 mr-5" type="submit">Editar</button>
                     <button class="btn btn-outline-success my-2 my-sm-0 mr-5" type="submit">Consulta</button>
-                    <button class="btn btn-outline-danger my-2 my-sm-0 mr-5" type="submit">Apagar</button>
+                    <a href="../../controller/user/gerenciar.php?animal=<?= $linha['id']; ?>"><button class="btn btn-outline-danger my-2 my-sm-0 mr-5" type="submit">Apagar</button></a>
                     </div>
                 </div>
             </div>
