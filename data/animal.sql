@@ -8,6 +8,5 @@ CREATE TABLE animal(
         especie varchar(50),
         raca varchar(100),
         descricao varchar(500),
-        data_cadastro DATETIME NOT NULL
-        
+        data_cadastro DATETIME NOT NULL    
 );

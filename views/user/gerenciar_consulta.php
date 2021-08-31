@@ -1,8 +1,9 @@
 <?php
 session_start();
-include('../../controller/verifica.php');
-include('../../controller/exibir_todas_consultas.php')
+include_once('../../controller/verifica_login.php');
+include_once ('../../controller/exibir_consulta.php');
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -12,11 +13,10 @@ include('../../controller/exibir_todas_consultas.php')
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="../assets/pata2.png" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <title>Consultas</title>
+    <title>Gerenciar Consulta</title>
 </head>
 
 <body>
-
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Alterna navegação">
             <span class="navbar-toggler-icon"></span>
@@ -26,7 +26,7 @@ include('../../controller/exibir_todas_consultas.php')
         </a>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item">
+                <li class="nav-item ">
                     <a class="nav-link" href="./panel_user.php">Home <span class="sr-only">(Página atual)</span></a>
                 </li>
                 <li class="nav-item active">
@@ -35,7 +35,6 @@ include('../../controller/exibir_todas_consultas.php')
                 <li class="nav-item">
                     <a class="nav-link" href="../../controller/sair.php">Sair</a>
                 </li>
-
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
@@ -44,42 +43,41 @@ include('../../controller/exibir_todas_consultas.php')
             <a href="novo_animal.php"><button class="ml-5 btn btn-primary my-2 my-sm-0" type="submit">Cadastrar novo pet</button></a>
         </div>
     </nav>
-    <div class="container">
-        <?php
-        if ($result->num_rows > 0) {
-            while ($linha = $result->fetch_assoc()) {
-                if ($linha['tipo'] == 'Consulta') {
-        ?>
-                    <div class="card text-white bg-info mb-3 mt-3">
-                        <div class="card-header">Consulta</div>
-                        <div class="card-body">
-                            <a style="color: white;" href="./gerenciar_consulta.php?animal=<?= $linha['id']; ?>">
-                                <h5 class="card-title">Consulta do pet</h5>
-                            </a>
-                            <p class="card-text">Resumo: <?= $linha['descricao'] ?>.</p>
-                        </div>
-                    </div>
-                <?php
-                } else {
-                ?>
-                    <div class="card text-white bg-secondary mb-3">
-                        <div class="card-header">Vascina</div>
-                        <div class="card-body">
-                            <a style="color: white;" href="./gerenciar_consulta.php?animal=<?= $linha['id']; ?>">
-                                <h5 class="card-title">Vacina do pet</h5>
-                            </a>
-                            <p class="card-text">Resumo: <?= $linha['descricao'] ?>.</p>
-                        </div>
-                    </div>
-        <?php
-                }
-            }
-        } else {
-            echo "<h4>Sem animais cadastrados!</h4>";
-        }
+    <h3>Consultas</h3>
 
-        ?>
-    </div>
+    <?php
+    if ($result->num_rows > 0) {
+        $linha = $result_animal->fetch_assoc();
+        $linha_consulta = $result->fetch_assoc()
+    ?>
+            <div class="container p-5 mt-3 mb-3" style="display:flex; justify-content: space-between;border: 2px solid black; border-radius: 20px;">
+                <div class="card-img-top" style="text-align: center;width:auto;">
+                    <img style="height: 25rem; border-radius:20px; max-width: 30rem; object-fit: cover;" src="<?= '../img_upload/' . $linha['img']; ?>" alt="Imagem de capa do card">
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Nome: <?= $linha['name']; ?></p>
+                    <p class="card-text">Idade: <?= $linha['idade']; ?></p>
+                    <p class="card-text">Especie: <?= $linha['especie']; ?></p>
+                    <p class="card-text">Raça: <?= $linha['raca']; ?></p>
+                    <p class="card-text">Descrição: <?= $linha['descricao']; ?></p>
+                    <p class="card-text">Tipo: <?= $linha_consulta['tipo']; ?></p>
+                    <p class="card-text">Descrição da <?= $linha_consulta['tipo']; ?>: <?= $linha['descricao']; ?></p>
+                    <p class="card-text">Data de cadastro consulta: <?= $linha_consulta['data_cadastro']; ?></p>
+                    <div>
+                    <a href="./editar.php?animal=<?= $linha['id']; ?>"><button class="btn btn-outline-warning my-2 my-sm-0 mr-5" type="submit">Editar</button></a>
+                    <a href="./marcar_consulta.php?animal=<?= $linha['id']; ?>"><button class="btn btn-outline-success my-2 my-sm-0 mr-5" type="submit">Consulta</button></a>
+                    <a href="../../controller/user/gerenciar.php?animal=<?= $linha['id']; ?>"><button class="btn btn-outline-danger my-2 my-sm-0 mr-5" type="submit">Apagar</button></a>
+                    </div>
+                </div>
+            </div>
+
+    <?php
+        
+    } else {
+        echo "<h4>Erro!</h4>";
+    }
+    ?>
+
 </body>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

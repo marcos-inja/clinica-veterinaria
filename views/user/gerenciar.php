@@ -63,7 +63,7 @@ include_once ('../../controller/user/exibir_animal.php');
                     <p class="card-text">Data de cadastro: <?= $linha['data_cadastro']; ?></p>
                     <div>
                     <a href="./editar.php?animal=<?= $linha['id']; ?>"><button class="btn btn-outline-warning my-2 my-sm-0 mr-5" type="submit">Editar</button></a>
-                    <button class="btn btn-outline-success my-2 my-sm-0 mr-5" type="submit">Consulta</button>
+                    <a href="./marcar_consulta.php?animal=<?= $linha['id']; ?>"><button class="btn btn-outline-success my-2 my-sm-0 mr-5" type="submit">Consulta</button></a>
                     <a href="../../controller/user/gerenciar.php?animal=<?= $linha['id']; ?>"><button class="btn btn-outline-danger my-2 my-sm-0 mr-5" type="submit">Apagar</button></a>
                     </div>
                 </div>
