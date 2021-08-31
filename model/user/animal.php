@@ -40,18 +40,19 @@
         }
 
         public function atualizarAnimal(){
-
+            $id = $this->getId();
             $nome = $this->getNome();
+            $img = $this->getNomeImg();
             $idade = $this->getIdade();
             $especie = $this->getEspecie();
             $raca = $this->getRaca();
             $descricao = $this->getDescricao();
 
             $sql = "UPDATE animal SET 
-            nome = '$nome', idade = '$idade', especie = '$especie', raca= '$raca', descricao = '$descricao' 
-            where id = id";
+            name = '$nome', img = '$img', idade = '$idade', especie = '$especie', raca= '$raca', descricao = '$descricao' 
+            where id = $id";
             $this->banco->executarSql($sql);
-            return 'sucesso';
+            return true;
         }
 
         public function exibirAnimal(){

@@ -20,7 +20,7 @@ include('../../controller/verifica.php');
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Alterna navegação">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="./panel_user.php">
             <img src="../assets/pata2.png" width="30" alt="">
         </a>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">

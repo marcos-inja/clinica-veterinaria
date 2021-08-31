@@ -21,7 +21,7 @@ include_once ('../../controller/user/exibir_animal.php');
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Alterna navegação">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="./panel_user.php">
             <img src="../assets/pata2.png" width="30" alt="">
         </a>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
@@ -62,7 +62,7 @@ include_once ('../../controller/user/exibir_animal.php');
                     <p class="card-text">Descrição: <?= $linha['descricao']; ?></p>
                     <p class="card-text">Data de cadastro: <?= $linha['data_cadastro']; ?></p>
                     <div>
-                    <button class="btn btn-outline-warning my-2 my-sm-0 mr-5" type="submit">Editar</button>
+                    <a href="./editar.php?animal=<?= $linha['id']; ?>"><button class="btn btn-outline-warning my-2 my-sm-0 mr-5" type="submit">Editar</button></a>
                     <button class="btn btn-outline-success my-2 my-sm-0 mr-5" type="submit">Consulta</button>
                     <a href="../../controller/user/gerenciar.php?animal=<?= $linha['id']; ?>"><button class="btn btn-outline-danger my-2 my-sm-0 mr-5" type="submit">Apagar</button></a>
                     </div>
